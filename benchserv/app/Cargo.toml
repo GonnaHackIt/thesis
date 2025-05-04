@@ -1,0 +1,18 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+interface = { path = "../interface" }
+async-ffi = { version = "*", features = ["abi_stable"] }
+abi_stable = "*"
+
+rfd = "*"
+tokio = { version = "1", features = ["full"] }
+plotters-iced = "0.11"
+iced = { version = "*", features = ["canvas", "tokio"] }
+plotters="0.3"
+rand = { version = "0.9" }
+futures = "*"
+pin-project = "*"

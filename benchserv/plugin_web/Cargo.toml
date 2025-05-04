@@ -1,0 +1,16 @@
+[package]
+name = "plugin_web"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "web"
+crate-type = ["cdylib",'rlib']
+
+[dependencies]
+reqwest = "*"
+async-compat = "*"
+abi_stable = "*"
+interface = { path = "../interface" }
+async-ffi = { version = "*", features = ["abi_stable", "macros"] }
+async-std = "*"

@@ -1,0 +1,2 @@
+[workspace]
+members = [ "benchserv/app", "benchserv/interface", "benchserv/plugin", "benchserv/plugin_template", "benchserv/plugin_web", "multi_async", "multi_sync_pool", "multi_sync_spawn","single_async", "single_sync"]

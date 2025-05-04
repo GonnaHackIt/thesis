@@ -1,0 +1,14 @@
+[package]
+name = "plugin"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "basic"
+crate-type = ["cdylib",'rlib']
+
+[dependencies]
+abi_stable = "*"
+interface = { path = "../interface" }
+async-ffi = { version = "*", features = ["abi_stable", "macros"] }
+async-std = "*"
