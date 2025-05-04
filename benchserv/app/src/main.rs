@@ -87,8 +87,8 @@ enum Message {
     FileDialog(Option<FileHandle>, ConnectionChart),
 
     // test data
-    ConstantTestData(Arc<(benchmark::Wrapper<u64>, UnboundedSender<benchmark::Message>)>),
-    IncreaseTestData(
+    ConstantTestInitData(Arc<(benchmark::Wrapper<u64>, UnboundedSender<benchmark::Message>)>),
+    IncreaseTestInitData(
         Arc<(
             benchmark::Wrapper<(u64, u64)>,
             UnboundedSender<benchmark::Message>,
@@ -203,7 +203,7 @@ impl Main {
                             self.plugins_path.clone(),
                             plugin_name,
                         ),
-                        Message::ConstantTestData,
+                        Message::ConstantTestInitData,
                     )
                 } else {
                     Task::perform(
@@ -217,17 +217,17 @@ impl Main {
                             self.plugins_path.clone(),
                             plugin_name,
                         ),
-                        Message::IncreaseTestData,
+                        Message::IncreaseTestInitData,
                     )
                 }
             }
-            ConstantTestData(data) => {
+            ConstantTestInitData(data) => {
                 let (wrapper, sender) = Arc::into_inner(data).unwrap();
                 self.sender = Some(sender);
 
                 Task::run(wrapper, Message::ConstantNewData)
             }
-            IncreaseTestData(data) => {
+            IncreaseTestInitData(data) => {
                 let (wrapper, sender) = Arc::into_inner(data).unwrap();
                 self.sender = Some(sender);
 

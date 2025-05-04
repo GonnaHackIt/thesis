@@ -1,4 +1,4 @@
-use std::{net::SocketAddr, path::Path};
+use std::path::Path;
 
 use async_ffi::FfiFuture;
 
@@ -7,7 +7,7 @@ use abi_stable::{
     library::{LibraryError, RootModule},
     package_version_strings, sabi_trait,
     sabi_types::VersionStrings,
-    std_types::{RBox, RVec, Tuple2},
+    std_types::{RBox, Tuple2},
 };
 
 #[sabi_trait]

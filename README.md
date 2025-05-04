@@ -4,7 +4,17 @@ Server agnostic application for testing servers latency.
 
 ## Demonstration
 
-![](showcase.mp4)
+You can check the video demonstration by downloading showcase.mp4 file
+
+Constant connections mode:
+![](showcase1.png)
+
+Increasing connections mode:
+![](showcase2.png)
+
+<video width="1000" height="800" controls>
+  <source src="showcase.mp4" type="video/mp4">
+</video>
 
 ## How to run
 
@@ -13,17 +23,17 @@ To run the application you need to:
 1. Run the server you want to benchmark. For example:
 `cargo run -p single_sync`
 2. Compile the plugin of your choice and [place it](#plugins-path).
-3. Compile the `app` crate and run it (or use provided binary for windows - app.exe). Assuming we are in the `benchserv` folder:
+3. Compile the `app` crate and run it (or use provided binary for windows - [app.exe](/binary/)). Assuming we are in the `benchserv` folder:
 `cargo run -p app`
-4. Set settings in the app and click button `Run`
+4. Set the settings in the app and click button `Run`
 
 ## Plugins
 
-Plugins are responsible for creating connection, sending and receving data from the server they communicate with. Every connection is spawned onto new async task so plugins shouldn't do it themselves. Plugins must implement the (`interface`)[/interface] in order to be compatible. To measure latency that will be shown on the chart, plugins must use `start` and `stop` methods on the `ConnectionTimer` object provided in the function arguments.
+Plugins are responsible for creating connection, sending and receving data from the server they communicate with. Every connection is spawned onto new async task so plugins shouldn't do it themselves. Plugins must implement the [`interface`](benchserv/interface) in order to be compatible. To measure latency that will be shown on the chart, plugins must use `start` and `stop` methods on the `ConnectionTimer` object provided in the function arguments.
 
-To implement the plugin you can use the (template)[/plugin_template]. You can check example implementations here:
-- (basic_tcp)[/plugin]
-- (web)[/plugin_web]
+To implement the plugin you can use the [template](benchserv/plugin_template). You can check example implementations here:
+- [basic_tcp](benchserv/plugin)
+- [web](benchserv/plugin_web)
 
 ## Plugins Path
 
