@@ -1,8 +1,6 @@
+use super::*;
 use crate::Message;
-use iced::{
-    Alignment, Element, Length, Padding,
-    widget::{button, column, container, row, text},
-};
+use iced::widget::{button, column, container, row, text};
 use plotters_iced::{Chart, ChartBuilder, ChartWidget, DrawingBackend};
 use std::{collections::VecDeque, default::Default};
 

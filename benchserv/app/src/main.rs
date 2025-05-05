@@ -1,5 +1,5 @@
 use benchmark::ConnectionManager;
-use chart::ConnectionChart;
+use containers::ConnectionChart;
 use iced::{
     Element, Length, Task,
     widget::{column, container, row},
@@ -11,7 +11,6 @@ use std::{net::SocketAddr, str::FromStr, sync::Arc, time::Duration};
 use tokio::sync::mpsc::UnboundedSender;
 
 mod benchmark;
-mod chart;
 mod containers;
 
 fn main() -> iced::Result {
@@ -125,7 +124,7 @@ struct Main {
     data_points_constant: Vec<u64>,
     data_points_increase: Vec<(u64, u64)>,
 
-    chart: chart::ConnectionChart,
+    chart: ConnectionChart,
 }
 
 impl Main {
